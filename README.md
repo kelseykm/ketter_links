@@ -1,4 +1,4 @@
-# ** Ketter Links **
+# **Ketter Links**
 
 * Ketter Links is a webscraping application that scrapes free TV Series download sites, gets the specified links and writes them to a urls.txt file.
 * It uses requests, beautiful soup and selenium.
