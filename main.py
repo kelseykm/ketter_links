@@ -5,7 +5,7 @@
 from ketter_links import scraper, drivers
 import re
 from urllib.parse import urlparse
-import logging, logging.config
+import logging
 import argparse
 
 class Sites(object):
