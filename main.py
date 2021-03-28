@@ -241,7 +241,7 @@ if __name__ == "__main__":
         surrounded by square brackets, e.g., '[3-7]'. If you want seasons that do not follow each 
         other, put commas between them and surround them with square brackets, e.g., '[1,4,9]'. You 
         may also combine the two methods, e.g., [4,9-11]. 
-        You may also specify 'all'; this is the default.
+        If skipped and season was not specified in url, default is to get all seasons.
         ''', 
         required=False)
     scrape_parser.add_argument('--episodes', help='''
@@ -250,8 +250,9 @@ if __name__ == "__main__":
         links for just one episode of the season(s) specified, put the number of the episode e.g., 
         '1', but if you want a range of episodes, put the range, surrounded by square brackets, e.g.
         , '[3-7]'. If you want episodes that do not follow each other, put commas between them and 
-        surround them with square brackets, e.g., '[1,4,9]'. You may also combine the two methods, e.g., [4,9-11].
-        You may also specify 'all'; this is the default.
+        surround them with square brackets, e.g., '[1,4,9]'. You may also combine the two methods, 
+        e.g., [4,9-11].
+        If skipped and episode was not specified in url, default is to get all episodes.
         ''', 
         required=False)
     scrape_parser.set_defaults(func=scrape_main)
