@@ -230,7 +230,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
-    sub_parser = parser.add_subparsers(title='Sub-commands', description='Valid subcommands: scrape, search')
+    sub_parser = parser.add_subparsers(title='Sub-commands', description='You may run --help on either of the following valid subcommands: scrape, search')
 
     scrape_parser = sub_parser.add_parser('scrape')
     scrape_parser.add_argument('--url', help='The url of the series to scrape links for', required=True)
