@@ -63,7 +63,7 @@ class NetNaija(object):
         soup = BeautifulSoup(data, "html5lib")
 
         logger.debug("Using beautiful soup object to find results")
-        results = soup.find_all("h3", {'class': 'result-title'})
+        results = soup.find_all("div", {'class': 'info'})
 
         if results:
             results_links = []
