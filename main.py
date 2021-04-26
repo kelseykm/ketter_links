@@ -14,10 +14,8 @@ from typing import Callable, Union, Optional
 #set up logging
 logger = logging.getLogger()
 logger.setLevel(logging.WARNING)
-# logger.setLevel(logging.DEBUG)
 handler = logging.StreamHandler()
 handler.setLevel(logging.WARNING)
-# handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
