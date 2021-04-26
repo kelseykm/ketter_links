@@ -98,7 +98,7 @@ def grab_scrape_info() -> dict[str, Union[ParseResult, str]]:
 def run_scrape(url: ParseResult, seasons_regex: str, episodes_regex: str) -> Optional[list[str]]:
     """ Run the actual scraping funtions """
 
-    supported_sites: dict[str, Callable[ParseResult, str], Optional[list[str]]]
+    supported_sites: dict[str, Callable[[ParseResult, str], Optional[list[str]]]]
     supported_sites = {
         'www.thenetnaija.com': scrapeSites.netnaija,
         'www.lightdl.xyz': scrapeSites.lightdl,
