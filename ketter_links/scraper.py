@@ -24,7 +24,7 @@ def get_headers(url_netloc: str) -> dict[str, str]:
     logger.debug(f"Passing header to %s", url_netloc)
     return {
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-                "Accept-Encoding": "gzip, deflate, br",
+                "Accept-Encoding": "gzip",
                 "Accept-Language": "en",
                 "Dnt": "1",
                 "Host": f"{url_netloc}",
@@ -58,7 +58,7 @@ class NetNaija:
                 with sess.get(self.url) as resp:
                     data = resp.content
 
-                soup = BeautifulSoup(data, "html5lib")
+                soup = BeautifulSoup(data, "html.parser")
                 text_pattern = re.compile(fr'^Season ({self.seasons_regex})$')
                 elements = soup.find_all("a", text=text_pattern)
                 season_links = []
@@ -219,7 +219,7 @@ class O2tvSeries:
             data = resp.content
 
         logger.debug("Creating beautiful soup parser")
-        soup = BeautifulSoup(data, "html5lib")
+        soup = BeautifulSoup(data, "html.parser")
 
         text_pattern = re.compile(fr'^Season 0?({self.seasons_regex})$')
 

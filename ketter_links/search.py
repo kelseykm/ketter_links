@@ -23,7 +23,7 @@ def get_headers(url_netloc: str) -> dict[str, str]:
     logger.debug(f"Passing header to %s", url_netloc)
     return {
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-                "Accept-Encoding": "gzip, deflate, br",
+                "Accept-Encoding": "gzip",
                 "Accept-Language": "en",
                 "Dnt": "1",
                 "Host": f"{url_netloc}",
@@ -63,10 +63,11 @@ class NetNaija:
 
             logger.debug('Starting search')
             with sess.get(url=self.url, params=self.create_search_parameters()) as resp:
+                logger.debug("Search url: %s", resp.url)
                 data = resp.content
 
         logger.debug("Creating beautiful soup object")
-        soup = BeautifulSoup(data, "html5lib")
+        soup = BeautifulSoup(data, "html.parser")
 
         logger.debug("Using beautiful soup object to find results")
         results = soup.find_all("div", {'class': 'info'})
@@ -241,10 +242,11 @@ class LightDl:
 
             logger.debug('Starting search')
             with sess.get(url=self.url, params=self.create_search_parameters(fields['series'])) as resp:
+                logger.debug("Search url: %s", resp.url)
                 data = resp.content
 
         logger.debug("Creating beautiful soup object")
-        soup = BeautifulSoup(data, "html5lib")
+        soup = BeautifulSoup(data, "html.parser")
 
         logger.debug("Using beautiful soup object to find results")
 
