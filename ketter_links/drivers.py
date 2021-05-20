@@ -18,7 +18,7 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-class Sabishare(object):
+class Sabishare:
     """ Class for getting download links from saboshare """
 
     TIMEOUT = 5 #timeout for WebDriverWait
@@ -80,7 +80,7 @@ class Sabishare(object):
         logger.debug("Closing webdriver")
         self.driver.close()
 
-class O2tvSeries(object):
+class O2tvSeries:
     """ Class for getting download links from o2tvseries """
 
     TIMEOUT = 5 #timeout for WebDriverWait
