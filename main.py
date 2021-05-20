@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 ##Written by kelseykm
 
@@ -85,7 +85,7 @@ def grab_scrape_info() -> dict[str, Union[ParseResult, str]]:
                 raise exceptions.InvalidInput('Invalid input format for seasons or episodes')
 
             for argument_content in argument:
-                if not argument_content in ''.join(['[', ']', ',', '-', ' ', string.digits]):
+                if argument_content not in ''.join(['[', ']', ',', '-', ' ', string.digits]):
                     logger.error("Invalid input format for seasons or episodes")
                     raise exceptions.InvalidInput('Invalid input format for seasons or episodes')
 
